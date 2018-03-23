@@ -1,0 +1,363 @@
+<script src="/public/library/jquery/ajaxfileupload.js"></script>
+<section class="page wide-page editor-container">
+    <div class="editor">
+        <header class="blog-main-info">
+            <input type="hidden" class="blog_id" value="{{blog.id}}">
+            <input class="blog-title input" required placeholder="博客题目" value="{{blog.title}}">
+            <a href="javascript:void(0)" class="publish btn btn-blue">
+                {{#if blog.id}}
+                    确定修改
+                {{else}}
+                    发布
+                {{/if}}
+            </a>
+            <a href="javascript:void(0)" class="blog-save btn btn-green">保存草稿</a>
+        </header>
+        <ul class="toolbar">
+            <li class="bold"><span class="fa fa-bold"></span></li>
+            <li><span class="fa fa-link"></span></li>
+            <li class="editor-img-upload"><span class="fa fa-image"></span></li>
+            <li><span class="fa fa-code"></span></li>
+            <li><span class="fa fa-download"></span></li>
+        </ul>
+        <div class="new-blog-block">
+            <textarea class="blog-edit-area" name="content" required placeholder="博客内容">{{blog.content}}</textarea>
+            <div class="drag-control">
+                <span class="fa fa-text-width" style="color: #5e5e5e"></span>
+            </div>
+            <div class="html-rendering-area"></div>
+        </div>
+    </div>
+</section>
+<section class="publish-modal-container modal-container">
+    <div class="publish-modal modal animated bounceInDown">
+        <div class="modal-header">完善博客信息<span class="close-modal">&times;</span></div>
+        <div class="blog-publish-info modal-body">
+            <div>
+                <label>分类</label>
+                <select class="input site-classify" name="site_classify">
+                    <option value="1">技术小栈</option>
+                    <option value="2">神学研究</option>
+                    <option value="3">生活感悟</option>
+                </select>
+                <select class="input inner-classify" name="inner_classify">
+                    <option value="web前端">web前端</option>
+                    <option value="web后台">web后台</option>
+                    <option value="其它技术">其他技术</option>
+                </select>
+                <input id="tag-input" name="tag" required placeholder="标签" type="search" class="input tag-input"
+                       list="tag-list"
+                       value="{{blog.tag}}">
+                <datalist id="tag-list">
+                    <option>经典CSS</option>
+                    <option>经典JS</option>
+                    <option>模块化</option>
+                    <option>工具</option>
+                    <option>ES6</option>
+                    <option>模板引擎</option>
+                    <option>jquery插件</option>
+                    <option>MVVM</option>
+                    <option>Nodejs</option>
+                    <option>HTML5</option>
+                </datalist>
+            </div>
+            <div>
+                <label for="intro">简介</label>
+                <label style="font-size: 10px">还可填写<i class="text-num">125</i>字</label>
+                <textarea name="intro" required id="intro" class="blog-intro input">{{blog.intro}}</textarea>
+            </div>
+            <div>
+                {{#if user.id}}
+                    <label for="img-preview-input">图片</label>
+                    <a class="btn btn-green upload">确定上传</a>
+                    <a class="btn btn-blue choose-pic">精选图片</a>
+                    <input type="file" id="img-preview-input" name="img-preview-input">
+                    {{#if blog.pic_url}}
+                        <input class="org-pic-url" value="{{blog.pic_url}}" type="hidden">
+                        <img src='{{blog.pic_url}}' class="img-preview"/>
+                    {{else}}
+                        <img src='/public/images/blog/u2091.jpg' class="img-preview"/>
+                    {{/if}}
+                {{else}}
+                    <div>
+                        <label>作者</label>
+                        <input class="blog-author input">
+                    </div>
+                    <div>
+                        <label for="img-preview-input">
+                            图片
+                            <span class="tip">普通游客暂时不支持图片上传哟，但你可以选择我精心为你准备的图片</span>
+                        </label>
+                        <a class="btn btn-blue choose-pic">精选图片</a>
+                        <img src='/public/images/blog/u2091.jpg' class="img-preview"/>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-blue publish-for-sure">确定发布</a>
+            <a class="btn cancel">取消</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    +function () {
+
+        var $intro = $('.blog-intro'),
+                $siteClassify = $('.site-classify'),
+                $innerClassify = $('.inner-classify'),
+                pic_changed = 0;
+
+        // 限定简介字数
+        $intro.on('keyup', function () {
+            var content = $(this).val(),
+                    length = content.length,
+                    $textNum = $('.text-num');
+            $textNum.text(125 - length);
+            if (length > 125) {
+                $(this).val(content.substring(0, 124));
+                $textNum.text(0);
+            }
+        });
+
+        $siteClassify.change(function () {
+
+            var value = $(this).val();
+
+            if (value !== '1') {
+                $innerClassify.addClass('animated rotateOutDownLeft');
+                $innerClassify.val('默认');
+                setTimeout(function () {
+                    $innerClassify.hide()
+                }, 500);
+            } else {
+                $innerClassify.val('web前端');
+                $innerClassify.show().removeClass('animated rotateOutDownLeft').addClass('animated rotateInUpLeft');
+            }
+        });
+
+        var btnOut = function () {
+            $('.upload').unbind('click').addClass('animated bounceOut');
+            $("#img-preview-input").addClass('animated bounceOut');
+            $('.choose-pic').unbind('click').addClass('animated bounceOut');
+            $('.img-preview').css('visibility', 'visible').addClass('animated bounceIn');
+        };
+
+        $('.publish').click(function () {
+
+            var $modalContainer = $('.publish-modal-container'),
+                    $yes = $('.publish-for-sure'),
+                    $no = $('.cancel'),
+                    $close = $('.close-modal'),
+                    pic_url = '';
+
+            $modalContainer.height(document.body.scrollHeight);
+            $modalContainer.show();
+
+            $(".upload").click(function () {
+
+                var loadIndex,
+                        $input = $("#img-preview-input");
+
+                if ($input.val().length > 0) {
+                    var $preview = $('.img-preview');
+                    $.ajaxFileUpload({
+                                url: '/blog/upload',
+                                fileElementId: 'img-preview-input',
+                                dataType: 'json',
+                                beforeSend: function () {
+                                    loadIndex = layer.load(2, {time: 10 * 1000})
+                                },
+                                success: function (data) {
+                                    if (data.code !== 100100) {
+                                        layer.alert('图片上传出错啦');
+                                    } else {
+                                        layer.alert('图片上传成功');
+                                        pic_url = data.pic_url;
+                                        $preview[0].src = pic_url;
+                                        btnOut();
+                                        pic_url = pic_url.replace(/\\/g, '/');
+                                        pic_changed = 1;
+                                    }
+                                    layer.close(loadIndex);
+                                },
+                                error: function () {
+                                    layer.close(loadIndex);
+                                    layer.alert('网络不稳定');
+                                }
+                            }
+                    );
+                } else {
+                    layer.alert('亲，你忘了选择图片了');
+                }
+            });
+
+            $('.choose-pic').click(function () {
+                layer.open({
+                    title: '精选图片',
+                    content: '<ul class="choose-pic-list"></ul>',
+                    offset: '100px',
+                    area: ['800px', '400px'],
+                    btn: ['确定', '关闭'],
+                    yes: function (index) {
+                        var $preview = $('.img-preview');
+
+                        pic_url = $('.choose-pic-list .active img')[0].src;
+                        $preview[0].src = pic_url;
+//                        pic_url = pic_url.replace(/\\/g, '/').replace("http://www.hukaihe.cn", '');
+                        pic_url = pic_url.replace(/\\/g, '/').replace("http://localhost:3000", '');
+                        pic_changed = 1;
+                        layer.close(index);
+                        btnOut();
+                    },
+                    btn2: function (index) {
+                        layer.close(index);
+                    },
+                    success: function () {
+
+                        var loadIndex,
+                                $img,
+                                $picList = $('.choose-pic-list'),
+                                $pics;
+
+                        $.ajax({
+                            url: '/blog/getPicUrls',
+                            type: 'post',
+                            beforeSend: function () {
+                                loadIndex = layer.load(2, {time: 10 * 1000})
+                            },
+                            success: function (data) {
+                                var $frag = $(document.createDocumentFragment());
+
+                                data.forEach(function (src) {
+                                    $img = $('<li><img src="' + src + '"></li>');
+                                    $img.appendTo($frag);
+                                    layer.close(loadIndex);
+                                });
+                                $frag.appendTo($picList);
+                                $pics = $picList.find('li');
+                                $pics.click(function () {
+                                    $pics.removeClass('active');
+                                    $(this).addClass('active');
+                                });
+                            },
+                            error: function () {
+                                layer.close(loadIndex);
+                                layer.open('网络错误');
+                            }
+                        });
+                    }
+                });
+            });
+
+            $yes.bind('click',function () {
+
+                var blog = {},
+                        check = true,
+                        errorMessage = '',
+                        change_id = $('.blog_id').val(),
+                        org_pic_url = $('.org-pic-url').val(),
+                        action = change_id ? '/blog/change' : '/blog/publish',
+                        $author = $('.blog-author');
+
+                function warn(error) {
+                    errorMessage = '有【' + error + '】的博客才是好博客';
+                    check = false;
+                }
+
+                blog.tag = $('.tag-input').val() || warn('标签');
+                blog.intro = $('.blog-intro').val() || warn('简介');
+                blog.content = $('.blog-edit-area').val() || warn('内容');
+                blog.title = $('.blog-title').val() || warn('标题');
+
+                if(blog.title&&blog.title.length>25){
+                    warn('25字以下长度标题')
+                }
+
+                if(blog.tag&&blog.tag.length>10){
+                    warn('10个字以下标签');
+                }
+
+                if ($author.length !== 0) {
+                    blog.author = $author.val() || warn('作者');
+                }
+
+                // 图片是否改变
+                if (pic_changed) {
+                    blog.pic_url = pic_url;
+                } else {
+                    blog.pic_url = org_pic_url || '/public/images/blog/u2091.jpg';
+                }
+
+                // 如果是编辑状态
+                if (change_id) {
+                    blog.id = change_id;
+                    if (pic_changed) {
+                        blog.org_pic_url = org_pic_url;
+                    }
+                }
+
+                blog.inner_classify = $('.inner-classify').val();
+                blog.site_classify = $('.site-classify').val();
+
+                if (errorMessage) {
+                    layer.alert(errorMessage)
+                } else {
+                    $yes.unbind('click');
+                    var loadIndex;
+                    $.ajax({
+                        url: action,
+                        data: blog,
+                        type: 'post',
+                        beforeSend: function () {
+                            loadIndex = layer.load(2, {time: 10 * 1000})
+                        },
+                        success: function (data) {
+                            if (data.code === 100100) {
+                                layer.close(loadIndex);
+                                layer.confirm('发布成功！\n还要分享点什么吗？', {icon: 3, title: '小提示'}, function (index) {
+                                    if (change_id) {
+                                        location.href = '/blog/new';
+                                    } else {
+                                        location.reload();
+                                    }
+                                }, function () {
+                                    if (change_id) {
+                                        window.close();
+                                    } else {
+                                        location.href = '/'
+                                    }
+                                });
+                            }
+                        },
+                        error: function () {
+                            layer.close(loadIndex);
+                            layer.confirm('网络不是很稳定！多亏了我们后台强大的容错力。博客应该已经发布或修改成功了。还要分享点什么吗？', {
+                                icon: 3,
+                                title: '小提示'
+                            }, function (index) {
+                                location.href = '/blog/new';
+                            }, function () {
+                                window.close();
+                            });
+                        }
+                    });
+                }
+            });
+
+            $no.click(function () {
+                $modalContainer.fadeOut(100)
+            });
+
+            $close.click(function () {
+                $modalContainer.fadeOut(100)
+            })
+        });
+
+        $('.toolbar li').click(function () {
+            layer.alert('需要高级管理员权限以开启文本编辑器');
+        });
+    }()
+</script>
+

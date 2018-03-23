@@ -1,0 +1,160 @@
+[
+  {
+    "id": "readme",
+    "icon": "fa-book",
+    "url": "/views/static/HKHFrame/modules/readme.html",
+    "text": "使用说明"
+  },
+  {
+    "id": "感谢的第三方库",
+    "text": "感谢的第三方库",
+    "icon": "fa-github-alt",
+    "childInfo": [
+      {
+        "id": "fontawesome",
+        "text": "font awesome",
+        "icon": "fa-fort-awesome",
+        "url": "http://fontawesome.io/icons/"
+      },
+      {
+        "id": "animate",
+        "text": "animate",
+        "icon": "fa-puzzle-piece",
+        "url": "http://www.dowebok.com/demo/2014/98/"
+      },
+      {
+        "id": "echart",
+        "text": "echart",
+        "icon": "fa-area-chart",
+        "url": "http://echarts.baidu.com/index.html"
+      },
+      {
+        "id": "require",
+        "text": "require",
+        "icon": "fa-transgender",
+        "url": "http://www.requirejs.cn/"
+      },
+      {
+        "id": "layer",
+        "text": "layer",
+        "icon": "fa-flag",
+        "url": "http://layer.layui.com/"
+      },
+      {
+        "id": "handlebars",
+        "text": "handlebars",
+        "icon": "fa-resistance",
+        "url": "http://handlebarsjs.com/"
+      }
+    ]
+  },
+  {
+    "id": "作者活跃的论坛",
+    "text": "作者活跃的论坛",
+    "icon": "fa-user-secret",
+    "childInfo": [
+      {
+        "id": "CSDN",
+        "text": "CSDN",
+        "icon": "fa-television",
+        "url": "http://blog.csdn.net/hukaihe"
+      },
+      {
+        "id": "github",
+        "text": "github",
+        "icon": "fa-github-square",
+        "url": "https://github.com/HuKaihe"
+      },
+      {
+        "id": "imooc",
+        "text": "imooc",
+        "icon": "fa-fire",
+        "url": "http://www.imooc.com/u/2160595/articles"
+      }
+    ]
+  },
+  {
+    "id": "导航栏按钮展示",
+    "text": "导航栏按钮展示",
+    "icon": "fa-desktop",
+    "childInfo": [
+      {
+        "id": "经典JS",
+        "text": "经典JS",
+        "icon": "fa-puzzle-piece",
+        "childInfo": [
+          {
+            "id": "js立即调用函数",
+            "text": "js立即调用函数",
+            "icon": "fa-file-text",
+            "url": ""
+          },
+          {
+            "id": "轻松理解javascript原型",
+            "text": "轻松理解javascript原型",
+            "icon": "fa-file-text",
+            "url": ""
+          },
+          {
+            "id": "轻松理解javascript继承",
+            "text": "轻松理解javascript继承",
+            "icon": "fa-file-text",
+            "url": ""
+          },
+          {
+            "id": "数媒2016年11月招新面试题",
+            "text": "数媒2016年11月招新面试题",
+            "icon": "fa-file-text",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "经典CSS",
+        "text": "经典CSS",
+        "icon": "fa-css3",
+        "childInfo": [
+          {
+            "id": "浮动与display-inline-block",
+            "text": "浮动与display-inline-block",
+            "icon": "fa-file-text",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "HTML5+CSS3",
+        "text": "HTML5+CSS3",
+        "icon": "fa-html5",
+        "childInfo": [
+          {
+            "id": "约束验证API",
+            "text": "约束验证API",
+            "icon": "fa-file-text",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "MVVM",
+        "text": "MVVM",
+        "icon": "fa-drupal",
+        "childInfo": [
+          {
+            "id": "vuejs入门",
+            "text": "vuejs入门",
+            "icon": "fa-file-text",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "ES6",
+        "text": "ES6",
+        "icon": "fa-chrome",
+        "url": ""
+      }
+    ]
+  }
+]
+

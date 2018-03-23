@@ -1,0 +1,46 @@
+<div class="page page-main">
+    <table class="table blog-record-table">
+        <thead>
+        <tr>
+            <td>编号</td>
+            <td class="content">内容</td>
+            <td>日期</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each messages}}
+            {{#if status}}
+                <tr style="color: red;">
+                    <td>{{@index}}</td>
+                    <td class="content">{{content}}</td>
+                    <td class="pub_date"><input type="hidden" value="{{date}}"></td>
+                    <td>
+                        <a href="/admin/cancelMessage?id={{id}}">标明已查看</a>
+                    </td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td>{{@index}}</td>
+                    <td class="content">{{content}}</td>
+                    <td class="pub_date"><input type="hidden" value="{{date}}"></td>
+                    <td>
+                        <a href="/admin/deleteMessage?id={{id}}">删除</a>
+                    </td>
+                </tr>
+            {{/if}}
+
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $('.pub_date').each(function () {
+        var $date = $(this),
+                date = new Date($(this).find('input').val()),
+                dateStr = date.getFullYear() + '-' + (date.getMonth()+1) + '-'
+                        + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes();
+        $(this).text(dateStr)
+    });
+</script>

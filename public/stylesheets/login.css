@@ -1,0 +1,112 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-size: 100% 100%;
+  position: relative;
+  margin: 0;
+}
+.big-size-bg {
+  animation: bg-big 0.75s forwards;
+}
+@keyframes bg-big {
+  from {
+    background-size: 100% 100%;
+  }
+  to {
+    background-size: 120% 120%;
+  }
+}
+.login-box {
+  font-family: "Microsoft YaHei UI";
+  animation-duration: 0.5s !important;
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 500px;
+  height: 400px;
+  text-align: center;
+}
+.login-box .user-container {
+  margin-bottom: 20px;
+}
+.login-box .user-container:hover .pre,
+.login-box .user-container:hover .next {
+  opacity: 1;
+  transition: all 2s;
+}
+.login-box .user-container .pre,
+.login-box .user-container .next {
+  opacity: 0;
+  font-size: 70px;
+  height: 170px;
+  line-height: 170px;
+  color: #999;
+  cursor: pointer;
+}
+.login-box .user-container .next {
+  float: right;
+}
+.login-box .user-container .pre {
+  float: left;
+}
+.login-box .user-container .portrait {
+  width: 160px;
+  height: 160px;
+  border: 5px solid #999999;
+  border-radius: 90px;
+  background-size: 110% 110%;
+  margin: 0 auto 15px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 270px;
+  display: none;
+}
+.login-box .user-container .portrait:first-child {
+  display: block;
+}
+.login-box .user-container .error-message {
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  color: red;
+  font-weight: bold;
+}
+.login-box .password-container {
+  position: relative;
+}
+.login-box .password-container .enter {
+  position: absolute;
+  right: 105px;
+  top: 6px;
+  color: #9E9E9E;
+  height: 27px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.login-box .password-container .password {
+  font-family: 'Microsoft YaHei UI';
+  width: 275px;
+  height: 30px;
+  padding: 2px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+}
+.time-box {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 60px;
+  color: #fff;
+  font-family: Consolas, "Microsoft YaHei UI";
+}
+.time-box .time {
+  text-align: right;
+  font-size: 30px;
+}

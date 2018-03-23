@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="keywords" content="胡凯赫,博客,个人主页">
+    <meta http-equiv="description" content="这是胡凯赫的个人主页。胡凯赫是一名学生，web前端工程师，神学研究爱好者，他还想成为一名作家。所以你可以在这里看到很多技术博客，原创小说还有一些关于神学研究的理论">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="shortcut icon" href="http://fontawesome.hukaihe.com/public/image/hukaihe.ico" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/public/stylesheets/reset.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/blog.min.css">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/stylesheets/blog-content.min.css">
+    <script src="/public/library/jquery/jquery-1.12.0.min.js"></script>
+    <script src="/public/library/markdown/markdown.min.js"></script>
+    <script src="/public/library/layer/layer.js"></script>
+    <script src="/public/library/animate/wow.min.js"></script>
+</head>
+<body>
+<header class="page-header">
+    <a href="/"><img src="/public/images/logo.png" alt="HKH博客" class="logo"/></a>
+    <span class="fa fa-navicon show-nav" style="display: none"></span>
+    <ul class="header-nav">
+        <li><a href="/">首页</a></li>
+        <li><a href="/technology">技术小栈</a></li>
+        <li><a href="/theology">神学研究</a></li>
+        <li><a href="/life">生活感悟</a></li>
+        <li><a class="about-me_btn" href="/views/static/about-me/about-me.html">关于我</a></li>
+        {{#if user}}
+            <li><a  class="logoff_btn" href="/admin/logoff">登出</a></li>
+        {{else}}
+            <li><a class="login_btn" href="/admin/login">登陆</a></li>
+        {{/if}}
+        <li class="checkmessage" style="display: none"><a href="/admin/messages"><i class="fa fa-envelope icon"></i></a></li>
+        <li><a href="/blog/manage"><i class="fa fa-search icon"></i></a></li>
+        <li class="flex-bottom-line"></li>
+    </ul>
+</header>
+{{{body}}}
+{{#if user}}
+    <aside class="pet">
+        <div class="pet-dialog">
+            <div class="dialog-content">主人，欢迎你<br>我是博客小助手<br>把鼠标移到我身上看看吧</div>
+            <div class="dialog-triangle"></div>
+        </div>
+        {{#if message_amount}}
+            <div class="message-amount">
+                <a href="/admin/messages" target="_blank">{{message_amount}}</a>
+            </div>
+        {{/if}}
+
+        <div class="pet-img">
+            <ul class="help-menu">
+                <!--<li><a href="#">返回页层</a></li>-->
+                <li><a href="/blog/manage" target="_blank">博客管理</a></li>
+                <li><a href="/blog/managenew" target="_blank">审核博客</a></li>
+                <li><a href="/blog/new" target="_blank">发表博客</a></li>
+                <li><a href="/admin/messages" target="_blank">查看消息</a></li>
+                <li><a href="/admin/logoff">登出</a></li>
+            </ul>
+        </div>
+    </aside>
+{{/if}}
+<footer class="footer">
+    本站基于：Nodejs<br>
+    于2017-1-17日托管于腾讯云服务器<br>
+    备案号：渝ICP备 15889689号<br>
+    声明：本站为个人学习研究网站开发而搭建，不参与任何商业性质的活动。站内图片来自于网络，如果使用了您不希望免费使用的图片，请您通过站内留言与我联系，我会及时删除
+</footer>
+<script src="/public/javascripts/index.min.js"></script>
+<script>
+
+    (function(){
+        if(document.body.clientWidth<500||document.documentElement.clientWidth<500){
+            $('.logoff_btn').html('<span class="fa fa-sign-out icon"></span>');
+            $('.login_btn').html('<span class="fa fa-sign-in icon"></span>');
+            $('.about-me_btn').html('<span class="fa fa-vcard icon"></span>');
+            var $head = $('.header-nav'),
+                    $show = $('.show-nav');
+            $head.hide();
+            $show.show().click(function () {
+                $head.slideToggle(500);
+                $show.toggleClass('active');
+            });
+        }else{
+            $('.show-nav').remove();
+        }
+    }());
+</script>
+</body>
+</html>

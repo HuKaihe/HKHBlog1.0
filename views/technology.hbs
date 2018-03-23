@@ -1,0 +1,178 @@
+<div class="head-banner">
+    技术小栈
+</div>
+<section class="page-main">
+    <div class="blog-block">
+        <header class="block-title">
+            <span class="icon fa fa-map-marker"></span>
+            <span class="title">
+                {{nav}}
+            </span>
+            <div class="bottom-line"></div>
+        </header>
+        <ul class="blog-list">
+            {{#each blogs}}
+                <li class="wow animated flipInY">
+                    <a href="/blog/article?id={{id}}">
+                        <article class="blog-card">
+                            <div class="blog-date">
+                                <input type="hidden" value="{{pub_date}}">
+                                <div class="day"></div>
+                                <div class="month"></div>
+                                <div class="year"></div>
+                            </div>
+                            <div class="blog-pic-container" data-src="{{pic_url}}">
+                            <div class="blog-name">{{title}}</div>
+                            </div>
+                            <div class="blog-info">
+                                <span class="reading-quantity">阅读量：{{read_quality}}</span>
+                                <span class="tag" data-tagtype="{{site_classify}}">{{tag}}</span>
+                            </div>
+                            <div class="blog-intro">
+                                {{intro}}
+                                ...
+                            </div>
+                            <a class="learn-more" href="/blog/article?id={{id}}" target="_blank">
+                                learn more
+                            </a>
+                        </article>
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+        <!--<ul class="pagination">-->
+            <!--<li><a href="javascript:void(0)">上一页</a></li>-->
+            <!--<li><a href="javascript:void(0)">1</a></li>-->
+            <!--<li><a href="javascript:void(0)">2</a></li>-->
+            <!--<li><a href="javascript:void(0)">3</a></li>-->
+            <!--<li>......</li>-->
+            <!--<li><a href="javascript:void(0)">10</a></li>-->
+            <!--<li><a href="javascript:void(0)">下一页</a></li>-->
+            <!--<li><input placeholder="跳转到"></li>-->
+            <!--<li><a href="javascript:void(0)">确定</a></li>-->
+        <!--</ul>-->
+    </div>
+    <aside class="blog-aside">
+        <div class="quick-navigation">
+            <header class="block-title">
+                <span class="icon fa fa-paper-plane-o"></span>
+                <span class="title">快速导航</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul>
+                <li class="navigation-box">
+                    <div class="nav-title">
+                        <a href="/blog/innerclassify?type=web前端">
+                            <span class="icon fa fa-html5"></span>
+                            <span>web<br>前<br>端</span>
+                        </a>
+                    </div>
+                    <ul class="nav-content">
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=经典JS">经典JS</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=经典CSS">经典CSS</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=jquery">jquery</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=boostrap">boostrap</a></li>
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=nodejs">nodejs</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=MVVM">MVVM</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=HTML5">HTML5</a></li>
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=工具">工具</a></li>
+                        <li class="tag tag"><a href="/blog/technology?tag=模块化">模块化</a></li>
+                    </ul>
+                </li>
+                <li class="navigation-box" data-status="close" style="border:1px solid #9FEA7A;">
+                    <div class="nav-title" style="background-color:#9FEA7A;">
+                        <a href="/blog/innerclassify?type=web后台">
+                            <span class="icon fa fa-android"></span>
+                            <span>web<br>后<br>台</span>
+                        </a>
+                    </div>
+                    <ul class="nav-content">
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=JAVA SE">JAVA SE</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=express">express</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=JAVA EE">JAVA EE</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=mysql">mysql</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=IDEA">IDEA</a></li>
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=Nodejs">Nodejs</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=mongodb">mongodb</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=SpringMVC+Mybatis">SpringMVC+Mybatis</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="navigation-box" data-status="close" style="border:1px solid #42CAC7">
+                    <div class="nav-title" style="background-color:#42CAC7;">
+                        <a href="javascript:void(0)">
+                            <span class="icon fa fa-arrows"></span>
+                            <span>信<br>仰<br>生<br>活</span>
+                        </a>
+                    </div>
+                    <ul class="nav-content">
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=以色列史">以色列史</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=信仰生活">信仰生活</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=每日金句">每日金句</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=神经研读">圣经研读</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=原创小说">原创小说</a></li>
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=动态">动态</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="hot-blog-ranking">
+            <header class="block-title">
+                <span class="icon fa fa-coffee"></span>
+                <span class="title">最热技术博客排行</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul class="hot-blog-list">
+                {{#each orderedTechRecords}}
+                    <li>
+                        <a href="/blog/article?blog_id={{id}}">
+                            <span class="blog-name">{{title}}</span>
+                            <span class="blog-read-quality">阅读量：{{read_quality}}</span>
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="blog-date-filing">
+            <header class="block-title">
+                <span class="icon fa fa-calendar"></span>
+                <span class="title">时间归档</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul class="date-box">
+                {{#each blogsForDate}}
+                    <li>
+                        <a class="date-title" href="javascript:void(0)">
+                            <span class="icon fa fa-calendar-plus-o"></span>
+                            {{@key}}
+                        </a>
+                        <ul class="date-submenu">
+                            {{#each this}}
+                                <li>
+                                    <a href="/blog/article?id={{id}}">
+                                        <span class="title">{{title}}</span>
+                                        <span class="date">{{pub_date}}</span>
+                                    </a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </aside>
+</section>
+<script>
+    $('.blog-date').each(function () {
+        var $container = $(this),
+                date = new Date($container.find('input').val()),
+                $day = $container.find('.day'),
+                $month = $container.find('.month'),
+                $year = $container.find('.year'),
+                monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Oct', 'Dec'];
+
+        $day.text(date.getDate());
+        $month.text(monthArr[date.getMonth()]);
+        $year.text(date.getFullYear());
+    });
+</script>

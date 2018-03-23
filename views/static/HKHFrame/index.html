@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" id="myHtml">
+<head>
+    <title>HKHFrameForBlog</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/views/static/HKHFrame/public/index.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/reset.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/blog.min.css">
+    <link rel="stylesheet" href="/public/library/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/library/animate/animate.min.css">
+    <link rel="stylesheet" href="/public/library/layer/skin/layer.css">
+    <link rel="stylesheet" href="/public/library/bootstrap/bootstrap.min.css">
+    <script src="/public/library/jquery/jquery-1.12.0.min.js"></script>
+</head>
+<body id="myBody">
+<!--本框架所有者为：胡凯赫（KyleHu），开源供各路大侠免费使用。-->
+<!--框架顶部工作区-->
+<div class="top-block">
+    <div class="myLogo">
+        <img src="/views/static/HKHFrame/public/LOGO.png"/>
+    </div>
+    <!--下面这些板块右浮于屏幕右边-->
+    <div class="btn-group">
+        <button class="button-event animated bounceInLeft">
+            <span class="fa fa-power-off"></span>
+        </button>
+        <button class="button-settings animated bounceInLeft" data-toggle="tooltip">
+            <span class="fa fa-search"></span>
+        </button>
+        <button class="button-settings animated bounceInLeft" data-toggle="tooltip">
+            <span class="fa fa-cog fa-spin"></span>
+        </button>
+    </div>
+    <div class="touch-me animated lightSpeedIn">
+        <div>
+            <span class="icon fa fa-github"></span>
+            <a href="https://github.com/HuKaihe/HKHFrame" target="_blank">https://github.com/HuKaihe/HKHFrame</a>
+        </div>
+        <div>
+            <span class="icon fa fa-envelope"></span>
+            <a>agentkyle@foxmail.com</a>
+        </div>
+    </div>
+
+</div>
+<!--框架左侧导航栏-->
+<div class="left-block-container">
+    <div class="left-block">
+        <div class="user-info">
+            <div class="user-icon animated bounceInLeft"></div>
+            <div class="user-detail">
+                <div class="user-name animated bounceInRight">胡凯赫</div>
+                <div class="user-position animated bounceInRight">web前端工程师</div>
+                <div class="user-pow animated bounceInRight">online</div>
+            </div>
+        </div>
+        <ul class="navigation">
+            <li>
+                <a href="javascript:void(0)" class="navButton-stretch">
+                    <span class="fa fa-chevron-left"></span>
+                </a>
+            </li>
+            <script id="navigationTemplate" type="text/x-handlebars-template">
+                {{#each this}}
+                <li>
+                    <a name="{{id}}" href="javascript:void(0)" data-url="{{url}}" data-funcname="{{func_name}}">
+                        <span class="navButton-icon fa fa-fw {{icon}} animated bounceIn"></span>
+                        <span class="break-word-text navButton-text animated bounceIn" title="{{text}}" > {{text}} </span>
+                        {{#if childInfo}}
+                        <span class="navButton-spread fa fa-fw fa-angle-down animated bounceIn"></span>
+                        {{/if}}
+                    </a>
+                    {{#if childInfo}}
+                    <ul class="second-menu">
+                        {{#with childInfo}}
+                        {{#each this}}
+                        <li>
+                            <a name="{{id}}" href="javascript:void(0)" data-url="{{url}}"
+                               data-funcName="{{func_name}}">
+                                <span class="navButton-icon fa fa-fw {{icon}} animated bounceIn"></span>
+                                <span class="break-word-text navButton-text  animated bounceIn" title="{{text}}"> {{text}} </span>
+                                {{#if childInfo}}
+                                <span class="navButton-spread fa fa-fw fa-angle-down animated bounceIn"></span>
+                                {{/if}}
+                            </a>
+                            {{#if childInfo}}
+                            <ul class="third-menu">
+                                {{#with childInfo}}
+                                {{#each this}}
+                                <li>
+                                    <a name="{{id}}" href="javascript:void(0)" data-url="{{url}}"
+                                       data-funcName="{{func_name}}">
+                                        <span class="navButton-icon fa fa-fw {{icon}} animated bounceIn"></span>
+                                        <span class="break-word-text navButton-text animated bounceIn" title="{{text}}"> {{text}} </span>
+                                    </a>
+                                </li>
+                                {{/each}}
+                                {{/with}}
+                            </ul>
+                            {{/if}}
+                        </li>
+                        {{/each}}
+                        {{/with}}
+                    </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </script>
+        </ul>
+    </div>
+</div>
+<!--框架左部导航小工具-->
+<div class="left-tools">
+    <ul class="navigationTools">
+        <li>
+            <a name="{{id}}" class="navButton-shrink" href="javascript:void(0)"
+               data-funcName={{func_name}}"><span
+                    class="navButton-icon fa fa-fw fa-chevron-right"></span></a>
+        </li>
+        <script id="navigationToolsTemplate" type="x-handlebars-template">
+            {{#each this}}
+            <li>
+                <a name="{{id}}" href="javascript:void(0)" data-url="{{url}}" data-funcname="{{func_name}}">
+                    <span class="navButton-icon fa {{icon}}"></span></a>
+                {{#with childInfo}}
+                <ul class="tools-second-menu">
+                    {{#each this}}
+                    <li>
+                        {{#hasTriangle @index}}
+                        <div class="triangle-left"></div>
+                        {{/hasTriangle}}
+                        <a name="{{id}}" href="javascript:void(0)" data-url="{{url}}">
+                            <span class="break-word-text tools-navButton-text" title="{{text}}">{{text}}</span>
+                            {{#if childInfo}}
+                            <span class="tools-signOfHasChild fa fa-angle-right"></span>
+                            {{/if}}
+                        </a>
+                        {{#with childInfo}}
+                        <ul class="tools-third-menu">
+                            {{#each this}}
+                            <li>
+                                {{#hasTriangle @index}}
+                                <div class="triangle-left"></div>
+                                {{/hasTriangle}}
+                                <a name="{{id}}" href="javascript:void(0)" data-url="{{url}}">
+                                    <span class="break-word-text tools-navButton-text" title="{{text}}">{{text}}</span>
+                                </a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/with}}
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/with}}
+                {{/each}}
+            </li>
+        </script>
+    </ul>
+</div>
+<!--选项卡区域-->
+<div class="tab-block">
+    <div data-tab_id="indexPage" class="tab-jump tab_index tab tab-active animated rollIn" data-url="/page/system-administration/function-module/index.html">首页</div>
+    <script type="x-handlebars-template" id="tabTemplate">
+        <div class="tab-jump tab tab-created tab-active animated rollIn" data-url="{{tab_url}}" data-tab_id="{{tab_id}}" draggable="true">
+            <span class="break-word-text tab-text">{{tab_text}}</span>
+
+            <div class="tab-close-container">
+                <div class="tab-close">&times;</div>
+            </div>
+        </div>
+    </script>
+
+    <div class="tabButton-refresh tab tabButton animated rollIn">刷新</div>
+
+    <div class="tab tabButton">
+        <div class="tabButton-tab-close animated rollIn">关闭标签&nbsp;&nbsp;<span class="fa fa-caret-down"></span></div>
+        <ul class="tab-close-menu">
+            <li class="tabButton-close-others">关闭其他</li>
+            <li class="tabButton-close-all">关闭所有</li>
+        </ul>
+    </div>
+</div>
+
+<!--框架中部主要工作区-->
+<div class="main-block">
+    <script type="x-handlebars-template" id="frameTemplate">
+        <iframe class="frame-created myFrame" src="{{url}}" name="frame{{frame_id}}"></iframe>
+    </script>
+</div>
+<!--模态框区域-->
+<script id="modalSettingsTemplate" type="text/html">
+    <div>
+        <div class="form-group">
+            <label for="refreshType">设置页面刷新方式</label>
+            <select class="form-control" id="refreshType">
+                <option value="0">手动刷新</option>
+                <option value="1">自动刷新</option>
+            </select>
+        </div>
+    </div>
+</script>
+<script src="/public/library/require/require.js"></script>
+<script src="/views/static/HKHFrame/public/require-config.min.js"></script>
+<script>
+    require(["navigation-maker", "tab-operation", "layer"], function (navigationMaker, tabOperation) {
+        navigationMaker.initializeNavigation();
+        tabOperation.initializeTabs();
+        // 先加载主页面，再加载子页面
+        var $indexFrame = $('<iframe name="frameindexPage" class="myFrame" src="/views/static/HKHFrame/modules/index/index.html"></iframe>');
+        $('.main-block').append($indexFrame)
+    });
+</script>
+</body>
+</html>

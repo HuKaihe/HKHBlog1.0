@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="keywords" content="胡凯赫,博客,个人主页">
+    <meta http-equiv="description" content="胡凯赫的个人博客，主页">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>管理员登录</title>
+    <link rel="stylesheet" href="/public/stylesheets/reset.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/login.min.css">
+    <link rel="stylesheet" href="/public/library/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/library/animate/animate.css">
+    <script src="/public/library/jquery/jquery-1.12.0.min.js"></script>
+</head>
+<body>
+<div class="login-box">
+    <div class="user-container">
+        <span class="fa fa-chevron-left pre"></span>
+        <span class="fa fa-chevron-right next"></span>
+        <ul class="portrait-list">
+            {{#each users}}
+                <li class="portrait" style="background-image: url({{portrait}})">{{name}}<input type="hidden"
+                                                                                                value="{{id}}"></li>
+            {{/each}}
+        </ul>
+        <div class="error-message"></div>
+    </div>
+    <div class="password-container">
+        <input class="password" type="password" placeholder="口令">
+        <span class="fa fa-share enter"></span>
+    </div>
+</div>
+<div class="time-box">
+    <div class="date"></div>
+    <div class="time"></div>
+</div>
+<script>
+
+    // 随机更换背景
+    $(function () {
+
+        var random = Math.random() * 10,
+                pic_base = '/public/images/login/',
+                picArr = ['run.png', 'wall.png'],
+                pic_path;
+
+        if (random <= 5) {
+            pic_path = pic_base + picArr[0]
+        } else {
+            pic_path = pic_base + picArr[1]
+        }
+
+        $('body').css({
+            'background': 'url(' + pic_path + ') no-repeat center center',
+            'background-size': '100% 100%'
+        });
+    });
+
+    // 登录
+    (function () {
+        $('body').click(function () {
+            $('.login-box').show().addClass('animated fadeInDown');
+            $('body').addClass('big-size-bg');
+        }).on('keydown', login);
+
+        $('.enter').click(login);
+
+        function login(event) {
+            var id = $('.portrait:visible').find('input').val(),
+                    password = $('.password').val(),
+                    $error = $('.error-message');
+
+            if (event.keyCode === 13 || $(event.target).hasClass('enter')) {
+                if (id.length <= 10 && password.length <= 20) {
+                    $.ajax({
+                        url: '/admin/login',
+                        data: {id: id, password: password},
+                        type: 'post',
+                        beforeSend: function () {
+                        },
+                        success: function (data) {
+                            if (data.code === 100100) {
+                                location.href = '/blog/manage'
+                            } else {
+                                $error.text(data.errorMessage);
+                            }
+                        },
+                        error: function () {
+                            $error.text('网络错误');
+                        }
+                    });
+                } else {
+                    $error.text('登录失败，可能是因为登录信息不规范');
+                }
+            }
+        }
+    }());
+
+    // 时间器
+    (function () {
+        var $time = $('.time'),
+                $date = $('.date');
+
+        setDate();
+        setInterval(setDate, 1000);
+
+        function setDate() {
+            var date = new Date(),
+                    dateStr = date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日<br>',
+                    timeStr = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+            $time.html(timeStr);
+            $date.html(dateStr)
+        }
+    }());
+
+    // 选择角色
+    (function () {
+
+        var $next_btn = $('.next'),
+                $pre_btn = $('.pre'),
+                $portraits = $('.portrait-list').find('.portrait'),
+                length = $portraits.length,
+                $error = $('.error-message');
+
+        if (length === 1) {
+            $next_btn.remove();
+            $pre_btn.remove();
+        }
+
+        $next_btn.click(function () {
+            var $portrait = $('.portrait:visible'),
+                    index = $portrait.index(),
+                    $next;
+
+
+            if (index === length - 1) {
+                $next = $portraits.eq(0);
+            } else {
+                $next = $portraits.eq(index + 1);
+            }
+
+            $error.text('');
+            $portrait.addClass('animated bounceOutLeft').hide(500);
+            $next.show().removeClass('animated bounceOutLeft bounceOutRight bounceInRight bounceInLeft').addClass('animated bounceInRight');
+        });
+
+        $pre_btn.click(function () {
+            var $portrait = $('.portrait:visible'),
+                    index = $portrait.index(),
+                    $pre;
+
+
+            if (index === 0) {
+                $pre = $portraits.eq(length - 1);
+            } else {
+                $pre = $portraits.eq(index - 1);
+            }
+
+            $error.text('');
+            $portrait.addClass('animated bounceOutRight').hide(500);
+            $pre.show().removeClass('animated bounceOutLeft bounceOutRight bounceInRight bounceInLeft').addClass('animated bounceInLeft');
+        });
+    }())
+</script>
+</body>
+</html>

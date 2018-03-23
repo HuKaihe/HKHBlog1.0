@@ -1,0 +1,161 @@
+<div class="head-banner" style="background-image:url(/public/images/u2642.png);">
+    我的博客
+</div>
+<section class="page-main">
+    <aside class="blog-detail-aside">
+        <div class="relevant-blog">
+            <header class="block-title">
+                <span class="icon fa fa-paw"></span>
+                <span class="title">也许你还需要这些</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul class="relevant-blog">
+                {{#each relateBlogs}}
+                    <li>
+                        <a href="/blog/article?id={{id}}">
+                            <span class="blog-name">{{title}}</span>
+                        </a>
+                    </li>
+                {{/each}}
+
+            </ul>
+        </div>
+        <div class="hot-blog-ranking green-style">
+            <header class="block-title">
+                <span class="icon fa fa-coffee"></span>
+                <span class="title">最热技术博客排行</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul class="hot-blog-list">
+                {{#each orderedTechRecords}}
+                    <li>
+                        <a href="/blog/article?id={{id}}">
+                            <span class="blog-name">{{title}}</span>
+                        </a>
+                    </li>
+                {{/each}}
+
+            </ul>
+        </div>
+    </aside>
+    <article class="blog">
+        <header>
+            <span class="blog-expand fa fa-expand"></span>
+            {{#if user}}
+                <a class="blog-edit fa fa-pencil" href="/blog/edit?id={{blog.id}}"></a>
+            {{/if}}
+            <div class="blog-title">
+                {{blog.title}}
+            </div>
+            <div class="author">
+                {{blog.author}}
+            </div>
+            <div class="info">
+                <span class="tag">{{blog.tag}}</span>
+                <span>点赞数：<span class="good">{{blog.good_amount}}</span></span>
+                <span class="make-good fa fa-sign-language" data-id="{{blog.id}}"></span>
+                <span class="reading-quality">阅读量：{{blog.read_quality}}</span>
+            </div>
+        </header>
+        <div class="blog-content" style="display: none">
+            {{blog.content}}
+        </div>
+        <script>
+            var $blogContent = $('.blog-content'),
+                    mark = $blogContent.text().trim(),
+                    html_content = markdown.toHTML(mark);
+
+            $blogContent.html(html_content).show();
+        </script>
+        <div class="page-turning">
+            {{#if nextAndPre.pre}}
+                <a href="/blog/article?id={{nextAndPre.pre.id}}"
+                   class="pre">上一页&nbsp;:&nbsp;{{nextAndPre.pre.title}}</a>
+            {{/if}}
+            {{#if nextAndPre.next}}
+                <a href="/blog/article?id={{nextAndPre.next.id}}"
+                   class="next">下一页&nbsp;:&nbsp;{{nextAndPre.next.title}}</a>
+            {{/if}}
+        </div>
+        <div class="comment-block">
+            <header class="block-title gray-style">
+                <span class="icon fa fa-commenting-o"></span>
+                <span class="title">留言</span>
+            </header>
+            <div>
+                <textarea class="input comment-input" placeholder="comment anything here"></textarea>
+                <div class="btn-group">
+                    <!--<input placeholder="Make your self a name" class="input username">-->
+                    <a class="btn btn-blue submit" href="javascript:void(0)">submit</a>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<script>
+
+    $(function () {
+        var $btn = $('.make-good'),
+                $good = $('.good'),
+                hasGood = sessionStorage.getItem('good'),
+                id = $btn.data('id'),
+                exp = new RegExp('^' + id + '$', 'g');
+
+        if (!exp.test(hasGood)) {
+
+            $btn.click(function () {
+
+                $.ajax({
+                    url: '/blog/goodInc',
+                    data: {id: id},
+                    type: 'post',
+                    success: function (data) {
+                        if (data.code === 10010) {
+                            $btn.hide(100);
+                            $good.text(parseInt($good.text()) + 1);
+                            sessionStorage.setItem('good', id)
+                        }
+                    },
+                    error: function () {
+                        layer.alert('网络错误');
+                    }
+                });
+            });
+        } else {
+            $btn.remove();
+        }
+
+        $('.submit').click(function () {
+
+            var blogTitle = '@' + $('.blog-title').text() + ': ',
+                    val = $('.comment-input').val();
+
+            if (val && val.length <= 255) {
+                $.ajax({
+                    url: '/admin/sendmessage',
+                    data: {content: blogTitle + val},
+                    type: 'post',
+                    success: function (data) {
+                        if (data.code === 100100) {
+                            layer.alert('发送成功');
+                        } else {
+                            layer.alert('发送失败：' + data.err);
+                        }
+                    },
+                    error: function () {
+                        layer.alert('网络不稳定');
+                    }
+                });
+            } else {
+                layer.alert('不能一个字不说，也不能说的太多T——T');
+            }
+        });
+
+        if (document.body.clientWidth < 500 || document.documentElement.clientHeight < 500) {
+            $('.blog-detail-aside').hide();
+            $('.blog-edit').hide();
+            $('.pet').remove();
+        }
+    });
+</script>
+

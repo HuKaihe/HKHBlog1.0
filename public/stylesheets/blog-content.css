@@ -1,0 +1,512 @@
+.blog-content,
+.new-blog-block {
+  /* BLOCKS
+  =============================================================================*/
+  /* HEADERS
+  =============================================================================*/
+  /* LINKS
+  =============================================================================*/
+  /* LISTS
+  =============================================================================*/
+  /* CODE
+  =============================================================================*/
+  /* QUOTES
+  =============================================================================*/
+  /* HORIZONTAL RULES
+  =============================================================================*/
+  /* TABLES
+  =============================================================================*/
+  /* IMAGES
+  =============================================================================*/
+}
+.blog-content html,
+.new-blog-block html,
+.blog-content body,
+.new-blog-block body,
+.blog-content div,
+.new-blog-block div,
+.blog-content span,
+.new-blog-block span,
+.blog-content applet,
+.new-blog-block applet,
+.blog-content object,
+.new-blog-block object,
+.blog-content iframe,
+.new-blog-block iframe,
+.blog-content h1,
+.new-blog-block h1,
+.blog-content h2,
+.new-blog-block h2,
+.blog-content h3,
+.new-blog-block h3,
+.blog-content h4,
+.new-blog-block h4,
+.blog-content h5,
+.new-blog-block h5,
+.blog-content h6,
+.new-blog-block h6,
+.blog-content p,
+.new-blog-block p,
+.blog-content blockquote,
+.new-blog-block blockquote,
+.blog-content pre,
+.new-blog-block pre,
+.blog-content a,
+.new-blog-block a,
+.blog-content abbr,
+.new-blog-block abbr,
+.blog-content acronym,
+.new-blog-block acronym,
+.blog-content address,
+.new-blog-block address,
+.blog-content big,
+.new-blog-block big,
+.blog-content cite,
+.new-blog-block cite,
+.blog-content code,
+.new-blog-block code,
+.blog-content del,
+.new-blog-block del,
+.blog-content dfn,
+.new-blog-block dfn,
+.blog-content em,
+.new-blog-block em,
+.blog-content img,
+.new-blog-block img,
+.blog-content ins,
+.new-blog-block ins,
+.blog-content kbd,
+.new-blog-block kbd,
+.blog-content q,
+.new-blog-block q,
+.blog-content s,
+.new-blog-block s,
+.blog-content samp,
+.new-blog-block samp,
+.blog-content small,
+.new-blog-block small,
+.blog-content strike,
+.new-blog-block strike,
+.blog-content strong,
+.new-blog-block strong,
+.blog-content sub,
+.new-blog-block sub,
+.blog-content sup,
+.new-blog-block sup,
+.blog-content tt,
+.new-blog-block tt,
+.blog-content var,
+.new-blog-block var,
+.blog-content b,
+.new-blog-block b,
+.blog-content u,
+.new-blog-block u,
+.blog-content i,
+.new-blog-block i,
+.blog-content center,
+.new-blog-block center,
+.blog-content dl,
+.new-blog-block dl,
+.blog-content dt,
+.new-blog-block dt,
+.blog-content dd,
+.new-blog-block dd,
+.blog-content ol,
+.new-blog-block ol,
+.blog-content ul,
+.new-blog-block ul,
+.blog-content li,
+.new-blog-block li,
+.blog-content fieldset,
+.new-blog-block fieldset,
+.blog-content form,
+.new-blog-block form,
+.blog-content label,
+.new-blog-block label,
+.blog-content legend,
+.new-blog-block legend,
+.blog-content table,
+.new-blog-block table,
+.blog-content caption,
+.new-blog-block caption,
+.blog-content tbody,
+.new-blog-block tbody,
+.blog-content tfoot,
+.new-blog-block tfoot,
+.blog-content thead,
+.new-blog-block thead,
+.blog-content tr,
+.new-blog-block tr,
+.blog-content th,
+.new-blog-block th,
+.blog-content td,
+.new-blog-block td,
+.blog-content article,
+.new-blog-block article,
+.blog-content aside,
+.new-blog-block aside,
+.blog-content canvas,
+.new-blog-block canvas,
+.blog-content details,
+.new-blog-block details,
+.blog-content embed,
+.new-blog-block embed,
+.blog-content figure,
+.new-blog-block figure,
+.blog-content figcaption,
+.new-blog-block figcaption,
+.blog-content footer,
+.new-blog-block footer,
+.blog-content header,
+.new-blog-block header,
+.blog-content hgroup,
+.new-blog-block hgroup,
+.blog-content menu,
+.new-blog-block menu,
+.blog-content nav,
+.new-blog-block nav,
+.blog-content output,
+.new-blog-block output,
+.blog-content ruby,
+.new-blog-block ruby,
+.blog-content section,
+.new-blog-block section,
+.blog-content summary,
+.new-blog-block summary,
+.blog-content time,
+.new-blog-block time,
+.blog-content mark,
+.new-blog-block mark,
+.blog-content audio,
+.new-blog-block audio,
+.blog-content video,
+.new-blog-block video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.blog-content p,
+.new-blog-block p,
+.blog-content blockquote,
+.new-blog-block blockquote,
+.blog-content ul,
+.new-blog-block ul,
+.blog-content ol,
+.new-blog-block ol,
+.blog-content dl,
+.new-blog-block dl,
+.blog-content table,
+.new-blog-block table,
+.blog-content pre,
+.new-blog-block pre {
+  margin: 15px 0;
+  line-height: 1.7;
+  font-size: 15px;
+  color: #1b1b1b;
+}
+.blog-content h1,
+.new-blog-block h1,
+.blog-content h2,
+.new-blog-block h2,
+.blog-content h3,
+.new-blog-block h3,
+.blog-content h4,
+.new-blog-block h4,
+.blog-content h5,
+.new-blog-block h5,
+.blog-content h6,
+.new-blog-block h6 {
+  margin: 20px 0 10px;
+  padding: 10px 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+.blog-content h1 tt,
+.new-blog-block h1 tt,
+.blog-content h1 code,
+.new-blog-block h1 code,
+.blog-content h2 tt,
+.new-blog-block h2 tt,
+.blog-content h2 code,
+.new-blog-block h2 code,
+.blog-content h3 tt,
+.new-blog-block h3 tt,
+.blog-content h3 code,
+.new-blog-block h3 code,
+.blog-content h4 tt,
+.new-blog-block h4 tt,
+.blog-content h4 code,
+.new-blog-block h4 code,
+.blog-content h5 tt,
+.new-blog-block h5 tt,
+.blog-content h5 code,
+.new-blog-block h5 code,
+.blog-content h6 tt,
+.new-blog-block h6 tt,
+.blog-content h6 code,
+.new-blog-block h6 code {
+  font-size: inherit;
+}
+.blog-content h1,
+.new-blog-block h1 {
+  font-size: 28px;
+  color: #000;
+}
+.blog-content h2,
+.new-blog-block h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+.blog-content h3,
+.new-blog-block h3 {
+  font-size: 18px;
+  border-left: 4px solid #9fea7a;
+  padding-left: 15px;
+}
+.blog-content h4,
+.new-blog-block h4 {
+  font-size: 16px;
+  border-left: 4px solid #f90;
+  padding-left: 15px;
+}
+.blog-content h5,
+.new-blog-block h5 {
+  font-size: 14px;
+  border-left: 4px solid #42cac7;
+  padding-left: 15px;
+}
+.blog-content h6,
+.new-blog-block h6 {
+  color: #777;
+  font-size: 14px;
+}
+.blog-content body > h2:first-child,
+.new-blog-block body > h2:first-child,
+.blog-content body > h1:first-child,
+.new-blog-block body > h1:first-child,
+.blog-content body > h1:first-child + h2,
+.new-blog-block body > h1:first-child + h2,
+.blog-content body > h3:first-child,
+.new-blog-block body > h3:first-child,
+.blog-content body > h4:first-child,
+.new-blog-block body > h4:first-child,
+.blog-content body > h5:first-child,
+.new-blog-block body > h5:first-child,
+.blog-content body > h6:first-child,
+.new-blog-block body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+.blog-content a:first-child h1,
+.new-blog-block a:first-child h1,
+.blog-content a:first-child h2,
+.new-blog-block a:first-child h2,
+.blog-content a:first-child h3,
+.new-blog-block a:first-child h3,
+.blog-content a:first-child h4,
+.new-blog-block a:first-child h4,
+.blog-content a:first-child h5,
+.new-blog-block a:first-child h5,
+.blog-content a:first-child h6,
+.new-blog-block a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+.blog-content h1 + p,
+.new-blog-block h1 + p,
+.blog-content h2 + p,
+.new-blog-block h2 + p,
+.blog-content h3 + p,
+.new-blog-block h3 + p,
+.blog-content h4 + p,
+.new-blog-block h4 + p,
+.blog-content h5 + p,
+.new-blog-block h5 + p,
+.blog-content h6 + p,
+.new-blog-block h6 + p {
+  margin-top: 10px;
+}
+.blog-content a,
+.new-blog-block a {
+  color: #4183C4;
+  text-decoration: none;
+}
+.blog-content a:hover,
+.new-blog-block a:hover {
+  text-decoration: underline;
+}
+.blog-content ul,
+.new-blog-block ul,
+.blog-content ol,
+.new-blog-block ol {
+  padding-left: 30px;
+}
+.blog-content ul li > :first-child,
+.new-blog-block ul li > :first-child,
+.blog-content ol li > :first-child,
+.new-blog-block ol li > :first-child,
+.blog-content ul li ul:first-of-type,
+.new-blog-block ul li ul:first-of-type,
+.blog-content ol li ol:first-of-type,
+.new-blog-block ol li ol:first-of-type,
+.blog-content ul li ol:first-of-type,
+.new-blog-block ul li ol:first-of-type,
+.blog-content ol li ul:first-of-type,
+.new-blog-block ol li ul:first-of-type {
+  margin-top: 0px;
+}
+.blog-content ul ul,
+.new-blog-block ul ul,
+.blog-content ul ol,
+.new-blog-block ul ol,
+.blog-content ol ol,
+.new-blog-block ol ol,
+.blog-content ol ul,
+.new-blog-block ol ul {
+  margin-bottom: 0;
+}
+.blog-content dl,
+.new-blog-block dl {
+  padding: 0;
+}
+.blog-content dl dt,
+.new-blog-block dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+.blog-content dl dt:first-child,
+.new-blog-block dl dt:first-child {
+  padding: 0;
+}
+.blog-content dl dt > :first-child,
+.new-blog-block dl dt > :first-child {
+  margin-top: 0px;
+}
+.blog-content dl dt > :last-child,
+.new-blog-block dl dt > :last-child {
+  margin-bottom: 0px;
+}
+.blog-content dl dd,
+.new-blog-block dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+.blog-content dl dd > :first-child,
+.new-blog-block dl dd > :first-child {
+  margin-top: 0px;
+}
+.blog-content dl dd > :last-child,
+.new-blog-block dl dd > :last-child {
+  margin-bottom: 0px;
+}
+.blog-content pre,
+.new-blog-block pre,
+.blog-content code,
+.new-blog-block code,
+.blog-content tt,
+.new-blog-block tt {
+  font-size: 13px;
+  font-family: Consolas, "Microsoft YaHei UI", Courier, monospace;
+}
+.blog-content code,
+.new-blog-block code,
+.blog-content tt,
+.new-blog-block tt {
+  margin: 0 0px;
+  padding: 5px;
+  white-space: nowrap;
+  background-color: #f8f8f8;
+}
+.blog-content pre > code,
+.new-blog-block pre > code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+.blog-content pre,
+.new-blog-block pre {
+  background-color: #f8f8f8;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 15px 15px;
+}
+.blog-content pre code,
+.new-blog-block pre code,
+.blog-content pre tt,
+.new-blog-block pre tt {
+  background-color: transparent;
+  border: none;
+}
+.blog-content kbd,
+.new-blog-block kbd {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #DDDDDD;
+  background-image: linear-gradient(#F1F1F1, #DDDDDD);
+  background-repeat: repeat-x;
+  border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+  border-image: none;
+  border-style: solid;
+  border-width: 1px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 10px;
+  padding: 1px 4px;
+}
+.blog-content blockquote,
+.new-blog-block blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+.blog-content blockquote > :first-child,
+.new-blog-block blockquote > :first-child {
+  margin-top: 0px;
+}
+.blog-content blockquote > :last-child,
+.new-blog-block blockquote > :last-child {
+  margin-bottom: 0px;
+}
+.blog-content hr,
+.new-blog-block hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+.blog-content table th,
+.new-blog-block table th {
+  font-weight: bold;
+}
+.blog-content table th,
+.new-blog-block table th,
+.blog-content table td,
+.new-blog-block table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+.blog-content table tr,
+.new-blog-block table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+.blog-content table tr:nth-child(2n),
+.new-blog-block table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+.blog-content img,
+.new-blog-block img {
+  max-width: 100%;
+}

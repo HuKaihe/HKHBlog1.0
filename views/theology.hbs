@@ -1,0 +1,88 @@
+<div class="head-banner">
+    神学探究
+</div>
+<section class="page-main">
+    <div class="blog-block">
+        <header class="block-title">
+            <span class="icon fa fa-map-marker"></span>
+            <span class="title">全部内容</span>
+            <div class="bottom-line"></div>
+        </header>
+        <ul class="blog-list">
+            {{#each blogs}}
+                <li class="wow animated flipInY">
+                    <a href="/blog/article?id={{id}}">
+                        <article class="blog-card">
+                            <div class="blog-date">
+                                <input type="hidden" value="{{pub_date}}">
+                                <div class="day"></div>
+                                <div class="month"></div>
+                                <div class="year"></div>
+                            </div>
+                            <div class="blog-pic-container" data-src="{{pic_url}}">
+                            <div class="blog-name">{{title}}</div>
+                            </div>
+                            <div class="blog-info">
+                                <span class="reading-quantity">阅读量：{{read_quality}}</span>
+                                <span class="tag" data-tagtype="{{site_classify}}">{{tag}}</span>
+                            </div>
+                            <div class="blog-intro">
+                                {{intro}}
+                                ...
+                            </div>
+                            <a class="learn-more" href="/blog/article?id={{id}}" target="_blank">
+                                learn more
+                            </a>
+                        </article>
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    <aside class="blog-aside">
+        <div class="hot-blog-ranking">
+            <header class="block-title">
+                <span class="icon fa fa-coffee"></span>
+                <span class="title">最热神学博客排行</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul class="hot-blog-list">
+                {{#each orderedTechRecords}}
+                    <li>
+                        <a href="/blog/article?blog_id={{id}}">
+                            <span class="blog-name">{{title}}</span>
+                            <span class="blog-read-quality">阅读量：{{read_quality}}</span>
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="blog-date-filing">
+            <header class="block-title">
+                <span class="icon fa fa-calendar"></span>
+                <span class="title">时间归档</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul class="date-box">
+                {{#each blogsForDate}}
+                    <li>
+                        <a class="date-title" href="javascript:void(0)">
+                            <span class="icon fa fa-calendar-plus-o"></span>
+                            {{@key}}
+                        </a>
+                        <ul class="date-submenu">
+                            {{#each this}}
+                                <li>
+                                    <a href="/blog/article?id={{id}}">
+                                        <span class="title">{{title}}</span>
+                                        <span class="date">{{pub_date}}</span>
+                                    </a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </aside>
+</section>

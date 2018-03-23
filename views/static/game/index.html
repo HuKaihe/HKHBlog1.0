@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>猜拳助手2.0</title>
+    <script src="./jquery-1.12.0.min.js"></script>
+    <link rel="stylesheet" href="game2.0.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+<div class="record" style="display: none">
+    <div class="tip" style="text-align: center">胜率统计</div>
+    <table>
+        <thead>
+        <tr>
+            <td>玩家名</td>
+            <td>胜利次数</td>
+            <td>胜利比率</td>
+        </tr>
+        </thead>
+        <tbody class="data">
+
+        </tbody>
+    </table>
+</div>
+<div class="game-box ">
+
+    <div id="btn-start" class="scene scene0 btn">开始</div>
+
+    <div class="scene scene1" style="display: none">
+        <label class="tip" for="role-num">请输入角色数</label>
+        <input class="input" id="role-num" autofocus="autofocus">
+        <div id="num-okay" class="btn">确定</div>
+    </div>
+
+    <div class="scene scene2 " style="display: none">
+        <div class="tip">请为每位角色命名：</div>
+        <div id="name-okay" class="btn">确定</div>
+    </div>
+
+    <div class="scene scene3" style="display: none">
+        <div>
+            <div class="tip">猜拳结果（出现顺序为先后顺序）：</div>
+            <div class="result" style="min-height: 300px"></div>
+            <div class="btn-groups">
+                <div id="next" class="btn next">继续</div>
+                <div id="sort" class="btn sort">排序</div>
+                <div id="show-record" class="btn show-record">显示胜率</div>
+                <div id="restart" class="btn restart">重新开始</div>
+            </div>
+        </div>
+        <div class="living-role">
+            <table>
+                <thead>
+                <tr>
+                    <td>角色名</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody class="role-info">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="counter">
+    <div style="display: none">3</div>
+    <div style="display: none">2</div>
+    <div style="display: none">1</div>
+</div>
+<script src="gamev2.0.js"></script>
+</body>
+</html>

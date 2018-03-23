@@ -1,0 +1,85 @@
+<div class="head-banner">
+    生活感悟
+</div>
+<section class="page-main">
+    <div class="blog-block">
+        <header class="block-title">
+            <span class="icon fa fa-map-marker"></span>
+            <span class="title">全部内容</span>
+            <div class="bottom-line"></div>
+        </header>
+        <ul class="blog-list">
+            {{#each blogs}}
+                <li class="wow animated flipInY">
+                    <a href="/blog/article?id={{id}}">
+                        <article class="blog-card">
+                            <div class="blog-date">
+                                <input type="hidden" value="{{pub_date}}">
+                                <div class="day"></div>
+                                <div class="month"></div>
+                                <div class="year"></div>
+                            </div>
+                            <div class="blog-pic-container" data-src="{{pic_url}}">
+                                <div class="blog-name">{{title}}</div>
+                            </div>
+                            <div class="blog-info">
+                                <span class="reading-quantity">阅读量：{{read_quality}}</span>
+                                <span class="tag" data-tagtype="{{site_classify}}">{{tag}}</span>
+                            </div>
+                            <div class="blog-intro">
+                                {{intro}}
+                                ...
+                            </div>
+                            <a class="learn-more" href="/blog/article?id={{id}}" target="_blank">
+                                learn more
+                            </a>
+                        </article>
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    <aside class="blog-aside">
+        <div class="blog-date-filing">
+            <header class="block-title">
+                <span class="icon fa fa-calendar"></span>
+                <span class="title">时间归档</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul class="date-box">
+                {{#each blogsForDate}}
+                    <li>
+                        <a class="date-title" href="javascript:void(0)">
+                            <span class="icon fa fa-calendar-plus-o"></span>
+                            {{@key}}
+                        </a>
+                        <ul class="date-submenu">
+                            {{#each this}}
+                                <li>
+                                    <a href="/blog/article?id={{id}}">
+                                        <span class="title">{{title}}</span>
+                                        <span class="date">{{pub_date}}</span>
+                                    </a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </aside>
+</section>
+<script>
+    $('.blog-date').each(function () {
+        var $container = $(this),
+                date = new Date($container.find('input').val()),
+                $day = $container.find('.day'),
+                $month = $container.find('.month'),
+                $year = $container.find('.year'),
+                monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Oct', 'Dec'];
+
+        $day.text(date.getDate());
+        $month.text(monthArr[date.getMonth()]);
+        $year.text(date.getFullYear());
+    })
+</script>

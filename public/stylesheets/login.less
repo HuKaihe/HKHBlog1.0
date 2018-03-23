@@ -1,0 +1,114 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  //background: url("/public/images/login/run.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: relative;
+  margin: 0;
+}
+.big-size-bg {
+  animation: bg-big 0.75s forwards;
+}
+@keyframes bg-big {
+  from {
+    background-size: 100% 100%;
+  }
+  to {
+    background-size: 120% 120%;
+  }
+}
+.login-box {
+  font-family: "Microsoft YaHei UI";
+  animation-duration: 0.5s !important;
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 500px;
+  height: 400px;
+  text-align: center;
+  .user-container {
+    margin-bottom: 20px;
+    &:hover {
+      .pre, .next {
+        opacity: 1;
+        transition: all 2s;
+      }
+    }
+    .pre, .next {
+      opacity: 0;
+      font-size: 70px;
+      height: 170px;
+      line-height: 170px;
+      color: #999;
+      cursor: pointer;
+    }
+    .next {
+      float: right;
+    }
+    .pre {
+      float: left;
+    }
+    .portrait {
+      width: 160px;
+      height: 160px;
+      border: 5px solid #999999;
+      border-radius: 90px;
+      //background: url("/public/images/login/portrait.jpg") center center;
+      background-size: 110% 110%;
+      margin: 0 auto 15px;
+      color: #fff;
+      font-size: 20px;
+      line-height: 270px;
+      display: none;
+      &:first-child {
+        display: block;
+      }
+    }
+    .error-message {
+      height: 30px;
+      line-height: 30px;
+      font-size: 15px;
+      color: red;
+      font-weight: bold;
+    }
+  }
+  .password-container {
+    position: relative;
+    .enter {
+      position: absolute;
+      right: 105px;
+      top: 6px;
+      color: #9E9E9E;
+      height: 27px;
+      line-height: 30px;
+      cursor: pointer;
+    }
+    .password {
+      font-family: 'Microsoft YaHei UI';
+      width: 275px;
+      height: 30px;
+      padding: 2px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    }
+  }
+}
+.time-box {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 60px;
+  color: #fff;
+  font-family: Consolas, "Microsoft YaHei UI";
+  .time {
+    text-align: right;
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,348 @@
+<html><head>
+    <title>readme</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+        /* Author: Nicolas Hery - http://nicolashery.com */
+        /* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+        /* Source: https://github.com/nicolahery/markdownpad-github */
+
+        /* RESET
+        =============================================================================*/
+
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        /* BODY
+        =============================================================================*/
+
+        body {
+            font-family: Microsoft YaHei;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        body>*:first-child {
+            margin-top: 0 !important;
+        }
+
+        body>*:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        /* BLOCKS
+        =============================================================================*/
+
+        p, blockquote, ul, ol, dl, table, pre {
+            margin: 15px 0;
+        }
+
+        /* HEADERS
+        =============================================================================*/
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 20px 0 10px;
+            padding: 0;
+            font-weight: bold;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+            font-size: inherit;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 24px;
+            border-bottom: 1px solid #ccc;
+            color: #000;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        h4 {
+            font-size: 16px;
+        }
+
+        h5 {
+            font-size: 14px;
+        }
+
+        h6 {
+            color: #777;
+            font-size: 14px;
+        }
+
+        body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+            margin-top: 10px;
+        }
+
+        /* LINKS
+        =============================================================================*/
+
+        a {
+            color: #4183C4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* LISTS
+        =============================================================================*/
+
+        ul, ol {
+            padding-left: 30px;
+        }
+
+        ul li > :first-child,
+        ol li > :first-child,
+        ul li ul:first-of-type,
+        ol li ol:first-of-type,
+        ul li ol:first-of-type,
+        ol li ul:first-of-type {
+            margin-top: 0px;
+        }
+
+        ul ul, ul ol, ol ol, ol ul {
+            margin-bottom: 0;
+        }
+
+        dl {
+            padding: 0;
+        }
+
+        dl dt {
+            font-size: 14px;
+            font-weight: bold;
+            font-style: italic;
+            padding: 0;
+            margin: 15px 0 5px;
+        }
+
+        dl dt:first-child {
+            padding: 0;
+        }
+
+        dl dt>:first-child {
+            margin-top: 0px;
+        }
+
+        dl dt>:last-child {
+            margin-bottom: 0px;
+        }
+
+        dl dd {
+            margin: 0 0 15px;
+            padding: 0 15px;
+        }
+
+        dl dd>:first-child {
+            margin-top: 0px;
+        }
+
+        dl dd>:last-child {
+            margin-bottom: 0px;
+        }
+
+        /* CODE
+        =============================================================================*/
+
+        pre, code, tt {
+            font-size: 12px;
+            font-family: Consolas, "Liberation Mono", Courier, monospace;
+        }
+
+        code, tt {
+            margin: 0 0px;
+            padding: 0px 0px;
+            white-space: nowrap;
+            border: 1px solid #eaeaea;
+            background-color: #f8f8f8;
+            border-radius: 3px;
+        }
+
+        pre>code {
+            margin: 0;
+            padding: 0;
+            white-space: pre;
+            border: none;
+            background: transparent;
+        }
+
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            font-size: 13px;
+            line-height: 19px;
+            overflow: auto;
+            padding: 6px 10px;
+            border-radius: 3px;
+        }
+
+        pre code, pre tt {
+            background-color: transparent;
+            border: none;
+        }
+
+        kbd {
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            background-color: #DDDDDD;
+            background-image: linear-gradient(#F1F1F1, #DDDDDD);
+            background-repeat: repeat-x;
+            border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+            border-image: none;
+            border-radius: 2px 2px 2px 2px;
+            border-style: solid;
+            border-width: 1px;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            line-height: 10px;
+            padding: 1px 4px;
+        }
+
+        /* QUOTES
+        =============================================================================*/
+
+        blockquote {
+            border-left: 4px solid #DDD;
+            padding: 0 15px;
+            color: #777;
+        }
+
+        blockquote>:first-child {
+            margin-top: 0px;
+        }
+
+        blockquote>:last-child {
+            margin-bottom: 0px;
+        }
+
+        /* HORIZONTAL RULES
+        =============================================================================*/
+
+        hr {
+            clear: both;
+            margin: 15px 0;
+            height: 0px;
+            overflow: hidden;
+            border: none;
+            background: transparent;
+            border-bottom: 4px solid #ddd;
+            padding: 0;
+        }
+
+        /* TABLES
+        =============================================================================*/
+
+        table th {
+            font-weight: bold;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 6px 13px;
+        }
+
+        table tr {
+            border-top: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        table tr:nth-child(2n) {
+            background-color: #f8f8f8;
+        }
+
+        /* IMAGES
+        =============================================================================*/
+
+        img {
+            max-width: 100%
+        }
+    </style>
+    <base href="file:\\\D:\Project\HKHFrame\">
+</head>
+<body>
+<h1>HKHFrame</h1>
+<p>HKHFrame旨在以简洁大方的界面帮助各类用户迅速搭建起属于自己的pc端web应用。下面是对她的简要介绍。</p>
+<p>打开方式，直接打款views/frame/index.html即可。</p>
+<p><img src="http://i.imgur.com/Ss2UJDa.jpg" alt="主界面"></p>
+<h2>功能介绍</h2>
+<blockquote>
+    <p>HKH框架拥有后台管理系统的所有基本功能，这里我主要介绍几点HKH为用户精心设计的功能</p>
+</blockquote>
+<h3>导航小工具</h3>
+<p>点击左侧导航栏的收缩按钮可以将导航栏转换为轻便的导航小工具。</p>
+<p><img src="http://i.imgur.com/ITgaA3A.jpg"></p>
+<h3>标签卡管理</h3>
+<p>用户每打开一个子页面都将会生成对应的标签卡，以方便用户对访问过的页面进行回访。当标签卡达到一定的数量后，会自动关闭前面的位于标签栏较前标签卡。用户可以拖动标签卡，调整标签卡的位置。</p>
+<p><img src="http://i.imgur.com/32MNesx.jpg"></p>
+<h3>页面刷新</h3>
+<p>可以点击右上角旋转的小螺丝设置子页面iframe的刷新方式。在默认情况下，子页面为手动刷新，这意味着需要用户手动点击标签栏右侧的刷新按钮
+    对页面进行刷新处理。这样做的好处是访问曾经访问过的数据不会导致额外的请求消耗。</p>
+<p>用户可以在这里将其更改为自动刷新，更改后，用户访问曾经访问过的子页面时，将直接导致子页面自动刷新，这样，用户看到的子页面
+    都将会是最新状态下的。</p>
+<p><img src="http://i.imgur.com/5Y8vOyU.jpg"></p>
+<h3>HKHUI</h3>
+<p>初始子页面是基于弹性盒子的demo，其中的轮播图，滑动底线导航栏等效果我已封装到我github的另一个叫做<strong>HKHUI</strong>的项目中</p>
+<p><a href="https://github.com/HuKaihe/HKHUI">https://github.com/HuKaihe/HKHUI</a></p>
+<h2>开发者说明：</h2>
+<blockquote>
+    <p>HKHFrame开源免费，我已使用它构建了我的博客HKH博客，<a href="http://www.hukaihe.cn">http://www.hukaihe.cn</a>(注：博客受知识产权保护)。下面主要讲解一下如何将这套框架为你所用。</p>
+</blockquote>
+<h3>技术要点</h3>
+<p>HKHFrame基于AMD(require.js)实现前端模块化，CSS样式基于bootstrap，使用font awesome字体图标，以handlebars作为数据渲染的模板引擎，layer控制弹出层。所用的库在public/library中可以找到。</p>
+<h3>部署于服务器上</h3>
+<p>部署于服务器上的HKHFrame可以享受更好的用户体验。调整文件导入路径时，注意默认状态下，将所有路径前的../../去掉即可（这涉及到require-config.js\index.html\init.html）。awesome中的css文件可能需要额外修改。</p>
+<h3>导航菜单渲染</h3>
+<p>可以通过直接修改public/javascripts/navigationMaker.js里提供的json数据来修改左侧的导航菜单的渲染，也可以打开navigationMaker.js注释掉的ajax，从后台获取相应格式的JSON数据。下面是每个按钮需要具备的属性：</p>
+<pre><code>{
+    "id": 1.5, // 必填且不得重复
+    "_parentId": 1, // 父节点ID，不必须
+    "menus_status": 1, // 不必须，作为附加选项
+    "text": "经典CSS", // 必须，按钮显示的文字
+    "func_name": "", // 不必须，渲染为data-funcname，用于绑定事件
+    "icon": "fa-css3",// 不必须，按钮的图标，默认只支持font awesome，你可以通过修改
+    // index.html里的渲染模板来引入其它字体库
+    "url": "", // 不必须，子页面的URL，如果有，则导致子页面进行渲染
+    "childInfo": [] // 不必须，子节点数组，里面包含和整个对象完全相同的结构，可以有若干个
+}
+</code></pre>
+
+<p>可见，每个按钮至少需要有一个id和文本内容。</p>
+<h3>require-config.js</h3>
+<p>这个文件里设置了require.js里文件的查找路径</p>
+<h2>版权说明</h2>
+<p>本框架的界面设计及代码均为胡凯赫（KyleHu）所有，完全开源，欢迎大家免费使用。但这仅限于代码及设计风格，不包括子页面中的图片及本框架的LOGO。当你在使用本框架时，你可以（但不必须）通过下面的邮箱（agentkyle@foxmail.com）与我取得联系，让我知道你正打算使用它，或者像我抱怨其中的一些bug。谢谢。</p>
+
+
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</body></html>

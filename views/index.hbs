@@ -1,0 +1,394 @@
+<section class="page-primary">
+    <div class="banner">
+        <div class="main-pic"></div>
+        <ul class="pic-list">
+            <li><img src="/public/images/u2091.jpg"/>
+                <div class="cover" style="display: none"></div>
+            </li>
+            <li><img src="/public/images/u2101.jpg"/>
+                <div class="cover"></div>
+            </li>
+            <li><img src="/public/images/u2103.jpg"/>
+                <div class="cover"></div>
+            </li>
+            <li><img src="/public/images/u2107.jpg"/>
+                <div class="cover"></div>
+            </li>
+            <li><img src="/public/images/u2109.jpg"/>
+                <div class="cover"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="follow-me">
+        <div class="method-to-touch">
+            <label>follow me</label>
+            <ul>
+                <li data-content="https://github.com/HuKaihe"><img src="/public/images/u2123.jpg"/></li>
+                <li data-content="879383400@qq.com"><img src="/public/images/u2125.png"/></li>
+                <li data-content="879383400"><img src="/public/images/u2127.png"/></li>
+            </ul>
+            <input class="message-input" placeholder="Any message to me?"/>
+        </div>
+        <div class="btn-group">
+            <a class="btn btn-blue send-message">发送</a>
+            {{#if user}}
+                <a class="btn btn-green open-chatting-room" href="/blog/new">发表博客</a>
+            {{else}}
+                <a class="btn btn-green open-chatting-room visit">发表博客</a>
+            {{/if}}
+        </div>
+        <div class="motto">
+            <div class="front-side side">
+                He giveth power to faint; and to him that hath no might he increaseth strength, Even the
+                youths shall faint and be weary, and the young man shall utterly fall: but they that wait for the Lord
+                shall
+                renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; they
+                shall
+                walk and not faint.
+                <span class="fa fa-angle-double-right turn-back turn"></span>
+            </div>
+            <div class="back-side side">
+                疲乏的，他赐能力；<br>
+                软弱的，他加力量。<br>
+                就是少年人也要疲乏困倦，强壮的也必全然跌倒。
+                但那等候耶和华的，必从新得力。<br>
+                他们必如鹰展翅上腾<br>
+                他们奔跑却不困倦，行走却不疲乏。
+                <span class="fa fa-angle-double-right turn-front turn"></span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-main">
+    <div class="blog-block">
+        <header class="block-title">
+            <span class="icon fa fa-bookmark"></span>
+            <span class="title">最新最热</span>
+            <div class="bottom-line"></div>
+        </header>
+        <ul class="blog-list">
+            <li class="wow animated flipInY">
+                <a href="/views/static/HKHFrame/index.html" target="_blank">
+                    <article class="blog-card">
+                        <div class="blog-date" style="background-color:#FF9900;">
+                            <input type="hidden" value="Mon Mar 10 2017 23:34:46 GMT+0800 (中国标准时间)">
+                            <div class="day"></div>
+                            <div class="month"></div>
+                            <div class="year"></div>
+                        </div>
+                        <div class="blog-pic-container" data-src="/public/images/hkhframe.jpg">
+                            <div class="blog-name" style="color: #e4e4cd">HKHFrame</div>
+                        </div>
+                        <div class="blog-info">
+                            <span class="reading-quantity"><span class="fa fa-star fa-spin"></span><span class="fa fa-star fa-spin"></span>【置顶】<span class="fa fa-star fa-spin"></span><span class="fa fa-star fa-spin"></span></span>
+                            <span class="tag" data-tagtype="1">HKH库</span>
+                        </div>
+                        <div class="blog-intro">
+                            HKHFrame是一款由胡凯赫开发的一款基于iframe的后台管理系统框架。可以在github上免费下载。
+                            我在这里利用它展示并连接了为本博客的搭建做出了不可取代贡献的第三方库。
+                            ...
+                        </div>
+                        <a class="learn-more" href="/views/static/HKHFrame/index.html" target="_blank">
+                            learn more
+                        </a>
+                    </article>
+                </a>
+            </li>
+            <li class="wow animated flipInY">
+                <a href="/views/static/about-me/about-me.html" target="_blank">
+                    <article class="blog-card">
+                        <div class="blog-date" style="background-color:#FF9900;">
+                            <input type="hidden" value="Mon Jan 12 2017 23:34:46 GMT+0800 (中国标准时间)">
+                            <div class="day"></div>
+                            <div class="month"></div>
+                            <div class="year"></div>
+                        </div>
+                        <div class="blog-pic-container" data-src="/public/images/aboutme.jpg">
+                            <div class="blog-name" style="color: #e4e4cd">2016年终总结</div>
+                        </div>
+                        <div class="blog-info">
+                            <span class="reading-quantity"><span class="fa fa-star fa-spin"></span><span class="fa fa-star fa-spin"></span>【置顶】<span class="fa fa-star fa-spin"></span><span class="fa fa-star fa-spin"></span></span>
+                            <span class="tag" data-tagtype="3">总结</span>
+                        </div>
+                        <div class="blog-intro">
+                            胡凯赫2016年年终总结:挑战杯全国银奖；国家奖学金；CSDN博客之星提名奖；第一个外包...
+                            2016年，是我人生中不平凡的一年...
+                        </div>
+                        <a class="learn-more" href="/views/static/about-me/about-me.html" target="_blank">
+                            learn more
+                        </a>
+                    </article>
+                </a>
+            </li>
+            {{#each blogs}}
+                <li class="wow animated flipInY">
+                    <a href="/blog/article?id={{id}}" target="_blank">
+                        <article class="blog-card">
+                            <div class="blog-date">
+                                <input type="hidden" value="{{pub_date}}">
+                                <div class="day"></div>
+                                <div class="month"></div>
+                                <div class="year"></div>
+                            </div>
+                            <div class="blog-pic-container" data-src="{{pic_url}}">
+                                <div class="blog-name">{{title}}</div>
+                            </div>
+                            <div class="blog-info">
+                                <span class="reading-quantity">阅读量：{{read_quality}}</span>
+                                <span class="tag" data-tagtype="{{site_classify}}">{{tag}}</span>
+                            </div>
+                            <div class="blog-intro">
+                                {{intro}}
+                                ...
+                            </div>
+                            <a class="learn-more" href="/blog/article?id={{id}}" target="_blank">
+                                learn more
+                            </a>
+                        </article>
+                    </a>
+                </li>
+            {{/each}}
+            <li class="get-more-blog" data-min="6" data-max="{{length}}">获取更多博客信息... ...</li>
+        </ul>
+    </div>
+    <aside class="blog-aside">
+        <div class="quick-navigation">
+            <header class="block-title">
+                <span class="icon fa fa-paper-plane-o"></span>
+                <span class="title">快速导航</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul>
+                <li class="navigation-box">
+                    <div class="nav-title">
+                        <a href="/blog/innerclassify?type=web前端">
+                            <span class="icon fa fa-html5"></span>
+                            <span>web<br>前<br>端</span>
+                        </a>
+                    </div>
+                    <ul class="nav-content">
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=经典JS">经典JS</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=经典CSS">经典CSS</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=jquery">jquery</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=boostrap">boostrap</a></li>
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=nodejs">nodejs</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=MVVM">MVVM</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=HTML5">HTML5</a></li>
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=工具">工具</a></li>
+                        <li class="tag tag"><a href="/blog/technology?tag=模块化">模块化</a></li>
+                    </ul>
+                </li>
+                <li class="navigation-box" data-status="close" style="border:1px solid #9FEA7A;">
+                    <div class="nav-title" style="background-color:#9FEA7A;">
+                        <a href="/blog/innerclassify?type=web后台">
+                            <span class="icon fa fa-android"></span>
+                            <span>web<br>后<br>台</span>
+                        </a>
+                    </div>
+                    <ul class="nav-content">
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=JAVA SE">JAVA SE</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=express">express</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=JAVA EE">JAVA EE</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=mysql">mysql</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=IDEA">IDEA</a></li>
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=Nodejs">Nodejs</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=mongodb">mongodb</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=SpringMVC+Mybatis">SpringMVC+Mybatis</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="navigation-box" data-status="close" style="border:1px solid #42CAC7">
+                    <div class="nav-title" style="background-color:#42CAC7;">
+                        <a href="javascript:void(0)">
+                            <span class="icon fa fa-arrows"></span>
+                            <span>信<br>仰<br>生<br>活</span>
+                        </a>
+                    </div>
+                    <ul class="nav-content">
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=以色列史">以色列史</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=信仰生活">信仰生活</a></li>
+                        <li class="tag"><a href="/blog/technology?tag=每日金句">每日金句</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=神经研读">圣经研读</a></li>
+                        <li class="tag tag-green"><a href="/blog/technology?tag=原创小说">原创小说</a></li>
+                        <li class="tag tag-orange"><a href="/blog/technology?tag=动态">动态</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="hot-blog-ranking">
+            <header class="block-title">
+                <span class="icon fa fa-coffee"></span>
+                <span class="title">最热技术博客排行</span>
+                <div class="bottom-line"></div>
+            </header>
+            <ul class="hot-blog-list">
+                {{#each orderedTechRecords}}
+                    <li>
+                        <a href="/blog/article?blog_id={{id}}">
+                            <span class="blog-name">{{title}}</span>
+                            <span class="blog-read-quality">阅读量：{{read_quality}}</span>
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="news">
+            <header class="block-title">
+                <span class="icon fa fa-child"></span>
+                <span class="title">最新动态</span>
+                <div class="bottom-line"></div>
+            </header>
+            {{#if news}}
+                <div class="blog-card news-card">
+                    <a href="/blog/article?id={{news.id}}">
+                        <div class="blog-pic-container" style="background-image: url({{news.pic_url}})">
+                            <div class="blog-name">{{news.title}}</div>
+                        </div>
+                        <div class="news-content blog-intro">
+                            <div class="news-date">{{news.pub_date}}</div>
+                            {{news.intro}}
+                        </div>
+                    </a>
+                </div>
+            {{else}}
+                <div class="news-content blog-intro">
+                    暂时没有哦！！
+                </div>
+            {{/if}}
+        </div>
+    </aside>
+</section>
+<script>
+    $(function () {
+
+        // 修改新闻日期
+        (function(){
+            var $date = $('.news-date'),
+                    date = new Date($date.html()),
+                    dateStr = date.getFullYear() + '-' + (date.getMonth()+1) + '-'
+                            + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes();
+            $date.text(dateStr)
+        }());
+
+
+        $('.visit').click(function () {
+            layer.open({
+                title: '轻博客声明',
+                'area': ['350px', '250px'],
+                content: '轻松快捷是本站的宗旨，在这里，' +
+                '您无需注册，无需密码，只需要告诉我们你的名字，就可以发布博客。' +
+                '当然，那需要管理员的审核，通过审核后即可在最新博客列表中看到。',
+                yes: function () {
+                    location.href = '/blog/visitnew';
+                }
+            });
+        });
+
+
+        function initalDate() {
+            $('.blog-date').each(function () {
+                var $container = $(this),
+                        date = new Date($container.find('input').val()),
+                        $day = $container.find('.day'),
+                        $month = $container.find('.month'),
+                        $year = $container.find('.year'),
+                        monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Oct', 'Dec'];
+
+                $day.text(date.getDate());
+                $month.text(monthArr[date.getMonth()]);
+                $year.text(date.getFullYear());
+            });
+        }
+
+        initalDate();
+
+
+        $('.method-to-touch li').hover(function () {
+            $('.message-input').val($(this).data('content'));
+        });
+
+        $('.send-message').click(function () {
+            var val = $('.message-input').val(),
+                    loadIndex;
+
+            if (val&&val.length<=255&&val!=='https://github.com/HuKaihe'&&val!=='879383400@qq.com'&&val!=='879383400') {
+                $.ajax({
+                    url: '/admin/sendmessage',
+                    data: {content: val},
+                    type: 'post',
+                    beforeSend:function () {
+                        loadIndex = layer.load(10, {time: 10 * 1000});
+                    },
+                    success: function (data) {
+                        if(data.code === 100100){
+                            layer.alert('发送成功');
+                        }else{
+                            layer.alert('发送失败：'+data.err);
+                        }
+                        layer.close(loadIndex);
+                    },
+                    error: function () {
+                        layer.alert('网络不稳定');
+                        layer.close(loadIndex);
+                    }
+                });
+            }else{
+                layer.alert('你真的没有什么正经的想说的吗？');
+            }
+        });
+
+
+        $('.get-more-blog').click(function () {
+
+            var $btn = $(this),
+                    min = parseInt($btn.attr('data-min')),
+                    max = $btn.data('max');
+
+            $.ajax({
+                url: '/more',
+                data: {min: min},
+                type: 'get',
+                success: function (blogs) {
+                    blogs.forEach(function (blog) {
+                        var $blog = $('<li class="wow animated flipInY"> <a href="/blog/article?id=' + blog.id + '"> <article class="blog-card"> <div class="blog-date"> <input type="hidden" value="' + blog.pub_date + '"> <div class="day"></div> <div class="month"></div> <div class="year"></div> </div> <div class="blog-pic-container" data-src="' + blog.pic_url + '"> <div class="blog-name">' + blog.title + '</div> </div> <div class="blog-info"> <span class="reading-quantity">阅读量：' + blog.read_quality + '</span> <span class="tag" data-tagtype="' + blog.site_classify + '">' + blog.tag + '</span> </div> <div class="blog-intro">' + blog.intro + '... </div> <a class="learn-more" href="/blog/article?id=' + blog.id + '" target="_blank">learn more </a> </article> </a> </li>')
+                        $blog.insertBefore($btn);
+                        initalDate();
+                    });
+
+                    $btn.attr('data-min', min + 4);
+
+                    if (min + 4 >= max) {
+                        $btn.remove();
+                    }
+
+                    $('.blog-card').hover(function () {
+                        var $img = $(this).find('.blog-pic-container');
+                        $img.addClass('blog-pic-container-big')
+                    }, function () {
+                        var $img = $(this).find('.blog-pic-container');
+                        $img.removeClass('blog-pic-container-big')
+                    });
+
+                    $('.tag').each(function () {
+                        var $tag = $(this),
+                                type = $tag.data('tagtype');
+
+                        if (type === 3) {
+                            $tag.addClass('tag-green')
+                        } else if (type === 1) {
+                            $tag.addClass('tag-orange')
+                        }
+                    });
+
+                    $(window).scrollTop($(window).scrollTop() + 200);
+                },
+                error: function () {
+                    layer.alert('网络错误');
+                }
+            });
+        });
+    });
+
+
+</script>
+
