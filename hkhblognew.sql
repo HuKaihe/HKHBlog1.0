@@ -38,7 +38,7 @@ CREATE TABLE `blog` (
   `title` varchar(25) NOT NULL DEFAULT '',
   `author` varchar(15) NOT NULL DEFAULT '某某',
   `intro` varchar(150) NOT NULL DEFAULT '' COMMENT '博客简介',
-  `pub_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `pub_date` timestamp NOT NULL,
   `url` varchar(255) DEFAULT '' COMMENT '博客加载有两种方式，一是可以通过url加载html页面，二是可以直接加载到页面',
   `content` text NOT NULL,
   `read_quality` int(10) unsigned NOT NULL DEFAULT '0',
